@@ -1,17 +1,18 @@
 package main
 import (
-	"encoding/json"
-	"net/http"
-"fmt"
-"github.com/gorilla/mux"  // for http router
+	"github.com/gin-gonic/gin"
+    "fmt"
 )
 
 func main(){
-	router := mux.NewRouter() //To create new router
+	//create router
+	//for testing from browser
+	r := gin.Default()
+	r.GET("/",func(c *gin.Context){
+		c.JSON(200,"Hello Shailesh and Hello World")
+	})
 
-	router.HandleFunc("/books",func(w http.ResponseWriter,r *http.Request){
-	json.NewEncoder(w).Encode("Hello World") 	
-}) //url and output
 	fmt.Println("Hello World")
-	http.ListenAndServe(":4000",router)
+	r.Run() //default port 8080
+
 }
