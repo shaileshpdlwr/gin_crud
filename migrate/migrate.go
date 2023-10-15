@@ -1,4 +1,4 @@
-package migrate
+package main
 
 import (
 	"learn_go/gin_crud/database"
@@ -9,8 +9,7 @@ import (
 func init(){
 	initializers.Loadenv()
 	database.ConnectToDb()
-
-
+	
 }
 
 func main(){

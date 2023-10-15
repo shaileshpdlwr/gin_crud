@@ -1,3 +1,5 @@
+# Local path : /home/shailesh/learn_go
+
 # gin_crud
 To understand crud operation using golang with gin 
 # JSON CRUD USING gin and postgresql
@@ -30,3 +32,5 @@ go.sum: The go.sum file is also created and maintained by Go. It contains *crypt
 dsn := "host=localhost user=gorm password=gorm dbname=gorm port=9920 sslmode=disable TimeZone=Asia/Shanghai"
 db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 ```
+# db migration command
+go run migrate/migrate.go
