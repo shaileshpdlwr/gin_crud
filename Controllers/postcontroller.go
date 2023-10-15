@@ -9,8 +9,13 @@ import (
 )
 func PostBlog(c *gin.Context){
 	//get data from request body
+	var body struct{
+		Title string `json:"title"`
+		Body string `json:"body"`
+	}
+	c.Bind(&body)
 	//create data
-	post := models.Post{Title:"Telugu Heros",Body:"Chiru,Nag,Venky,Bal"} 
+	post := models.Post{Title:body.Title,Body:body.Body} 
 	result := database.DB.Create(&post)
 	if result.Error != nil{
 		c.Status(400)
